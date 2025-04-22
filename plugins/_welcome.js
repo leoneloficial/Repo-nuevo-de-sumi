@@ -10,7 +10,7 @@ global.fkontak = {
         },
         message: {
             contactMessage: {
-                displayName: `${global.db.data.users[m.sender].name}`,
+                displayName: await conn.getName(m.sender),
                 vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split("@")[0]}:${m.sender.split("@")[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
                 jpegThumbnail: fs.readFileSync("./src/catalogo.jpg"),
                 thumbnail: fs.readFileSync("./src/catalogo.jpg"),
