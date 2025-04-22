@@ -11,7 +11,6 @@ import fs, {readdirSync, statSync, unlinkSync, existsSync, mkdirSync, readFileSy
 import yargs from 'yargs';
 import {spawn} from 'child_process'
 import lodash from 'lodash'
-import { yukiJadiBot } from './plugins/jadibot-serbot.js';
 import chalk from 'chalk'
 import syntaxerror from 'syntax-error'
 import {tmpdir} from 'os'
@@ -286,7 +285,7 @@ return true
 };
 
 //Arranque nativo para subbots by - ReyEndymion >> https://github.com/ReyEndymion
-
+/*
 global.rutaJadiBot = join(__dirname, './JadiBots')
 
 if (global.yukiJadibts) {
@@ -309,7 +308,7 @@ yukiJadiBot({pathYukiJadiBot: botPath, m: null, conn, args: '', usedPrefix: '/',
 }
 }
 }
-
+*/
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
 const pluginFilter = (filename) => /\.js$/.test(filename)
 global.plugins = {}
