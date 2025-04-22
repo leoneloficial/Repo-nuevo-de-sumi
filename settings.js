@@ -58,7 +58,7 @@ global.etiqueta = ''
 global.moneda = '¥coin'
 global.welcom1 = '❍ Edita Con El Comando setwelcome'
 global.welcom2 = '❍ Edita Con El Comando setbye'
-global.banner = 'https://files.catbox.moe/1kp0sk.jpg'
+global.banner = 'https://qu.ax/FbQnf.jpg'
 global.avatar = 'https://files.catbox.moe/1kp0sk.jpg'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
