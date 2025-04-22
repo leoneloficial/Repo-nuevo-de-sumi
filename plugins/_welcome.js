@@ -1,8 +1,25 @@
 import { WAMessageStubType } from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
+import fs from "fs";
 
 export async function before(m, { conn, participants, groupMetadata }) {
+global.fkontak = {
+        key: {
+            participant: '0@s.whatsapp.net',
+            remoteJid: 'status@broadcast'
+        },
+        message: {
+            contactMessage: {
+                displayName: `${global.db.data.users[m.sender].name}`,
+                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split("@")[0]}:${m.sender.split("@")[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
+                jpegThumbnail: fs.readFileSync("./src/catalogo.jpg"),
+                thumbnail: fs.readFileSync("./src/catalogo.jpg"),
+                sendEphemeral: true
+            }
+        }
+    }
   const redes = ""
+
   if (!m.messageStubType || !m.isGroup) return !0;
   let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/FbQnf.jpg')
   let img = await (await fetch(`${pp}`)).buffer()
