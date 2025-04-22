@@ -41,7 +41,7 @@ global.nameqr = 'YukiBot-MD'
 global.namebot = '✿◟Yυƙι-Sυσυ-Bσƚ◞✿'
 global.sessions = 'Sessions'
 global.jadi = 'JadiBots' 
-global.yukiJadibts = true
+global.yukiJadibts = false
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
