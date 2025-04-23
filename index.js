@@ -34,6 +34,9 @@ import readline, { createInterface } from 'readline'
 import NodeCache from 'node-cache'
 const {CONNECTING} = ws
 const {chain} = lodash
+
+import { yukiJadiBot } from './plugins/jadibot-serbot.js';
+
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 
 //const yuw = dirname(fileURLToPath(import.meta.url))
@@ -285,7 +288,7 @@ return true
 };
 
 //Arranque nativo para subbots by - ReyEndymion >> https://github.com/ReyEndymion
-/*
+
 global.rutaJadiBot = join(__dirname, './JadiBots')
 
 if (global.yukiJadibts) {
@@ -308,7 +311,7 @@ yukiJadiBot({pathYukiJadiBot: botPath, m: null, conn, args: '', usedPrefix: '/',
 }
 }
 }
-*/
+
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
 const pluginFilter = (filename) => /\.js$/.test(filename)
 global.plugins = {}
