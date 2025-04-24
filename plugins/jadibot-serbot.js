@@ -11,14 +11,14 @@ Contenido adaptado por:
 - elrebelde21 >> https://github.com/elrebelde21
 */
 
-const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import("@whiskeysockets/baileys"));
+const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import("@whiskeysockets/baileys")); 
 import qrcode from "qrcode"
 import NodeCache from "node-cache"
 import fs from "fs"
 import path from "path"
 import pino from 'pino'
 import chalk from 'chalk'
-import util from 'util' 
+import util from 'util'
 import * as ws from 'ws'
 const { child, spawn, exec } = await import('child_process')
 const { CONNECTING } = ws
@@ -30,38 +30,36 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "*⪛✰ ↫ sᥙmі  -  ᥴ᥆ძᥱ  ↬ ✰⪜*\n\n✐ Cσɳҽxισɳ SυႦ-Bσƚ Mσԃҽ QR\n\n✰ Con otro celular o en la PC escanea este QR para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Escanee este codigo QR para iniciar sesion con el bot\n\n✧ ¡Este código QR expira en 45 segundos!."
-let rtx2 = "*⪛✰ ↫ sᥙmі  -  ᥴ᥆ძᥱ  ↬ ✰⪜*\n\n✐ Cσɳҽxισɳ SυႦ-Bσƚ Mσԃҽ Cσԃҽ\n\n✰ Usa este Código para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Selecciona Vincular con el número de teléfono\n\n\`4\` » Escriba el Código para iniciar sesion con el bot\n\n✧ No es recomendable usar tu cuenta principal."
+let rtx = "*⪛✰ ↫ sᥙmі - ᥴ᥆ძᥱ ↬ ✰⪜*\n\n✐ Cσɳҽxισɳ SυႦ-Bσƚ Mσԃҽ QR\n\n✰ Con otro celular o en la PC escanea este QR para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Escanee este codigo QR para iniciar sesion con el bot\n\n✧ ¡Este código QR expira en 45 segundos!."
+let rtx2 = "*⪛✰ ↫ sᥙmі - ᥴ᥆ძᥱ ↬ ✰⪜*\n\n✐ Cσɳҽxισɳ SυႦ-Bσƚ Mσԃҽ Cσԃҽ\n\n✰ Usa este Código para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Selecciona Vincular con el número de teléfono\n\n\`4\` » Escriba el Código para iniciar sesion con el bot\n\n✧ No es recomendable usar tu cuenta principal."
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const yukiJBOptions = {}
 if (global.conns instanceof Array) console.log()
 else global.conns = []
+
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-//if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`♡ Comando desactivado temporalmente.`)
-let time = global.db.data.users[m.sender].Subs + 120000
-if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m.chat, `${emoji} Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
-const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
-const subBotsCount = subBots.length
-if (subBotsCount === 70) {
-return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponibles.`)
-}
-/*if (Object.values(global.conns).length === 30) {
-return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponibles.`)
-}*/
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let id = `${who.split`@`[0]}`  //conn.getName(who)
-let pathYukiJadiBot = path.join(`./${jadi}/`, id)
-if (!fs.existsSync(pathYukiJadiBot)){
-fs.mkdirSync(pathYukiJadiBot, { recursive: true })
-}
-yukiJBOptions.pathYukiJadiBot = pathYukiJadiBot
-yukiJBOptions.m = m
-yukiJBOptions.conn = conn
-yukiJBOptions.args = args
-yukiJBOptions.usedPrefix = usedPrefix
-yukiJBOptions.command = command
+  //if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`♡ Comando desactivado temporalmente.`)
+  let time = global.db.data.users[m.sender].Subs + 120000
+  if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m.chat, `${emoji} Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
+  const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
+  const subBotsCount = subBots.length
+  if (subBotsCount === 70) {
+    return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponibles.`)
+  }
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let id = `${who.split`@`[0]}`
+  let pathYukiJadiBot = path.join(`./${jadi}/`, id)
+  if (!fs.existsSync(pathYukiJadiBot)){
+    fs.mkdirSync(pathYukiJadiBot, { recursive: true })
+  }
+  yukiJBOptions.pathYukiJadiBot = pathYukiJadiBot
+  yukiJBOptions.m = m
+  yukiJBOptions.conn = conn
+  yukiJBOptions.args = args
+  yukiJBOptions.usedPrefix = usedPrefix
+  yukiJBOptions.command
 yukiJBOptions.fromCommand = true
 yukiJadiBot(yukiJBOptions)
 global.db.data.users[m.sender].Subs = new Date * 1
