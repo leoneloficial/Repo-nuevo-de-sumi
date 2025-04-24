@@ -1,4 +1,4 @@
-/* Codigo creado por ofcking y mejorado por Rayo-ofc */
+/* Codigo creado por ofcking y mejorado   por Rayo-ofc */
 import fs from 'fs';
 const paths = { JadiBots: `./${jadi}/`, Sessions: `./${sessions}/` };
 
