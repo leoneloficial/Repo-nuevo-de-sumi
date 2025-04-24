@@ -28,6 +28,6 @@ const handler = async (m, { conn, args }) => {
 
 handler.help = ['pinterest <url>'];
 handler.tags = ['downloader'];
-handler.command = ['pinterest', 'pin'];
+handler.command = ['pinterest1', 'pin1'];
 
 export default handler;
