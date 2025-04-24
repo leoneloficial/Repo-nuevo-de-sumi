@@ -7,12 +7,11 @@ const handler = async (m, { conn, args }) => {
   const url = args[0];
   try {
     m.react('⏳');
-    const apiUrl = `https://api.sylphy.xyz/download/pinterest?url=${url}`;
-    const response = await axios.get(apiUrl);
+    const response = await axios.get(`https://api.qewertyy.dev/download/pinterest?url=${url}`);
     const data = response.data;
 
     if (data.status) {
-      const imageUrl = data.result.image_url || data.result.url;
+      const imageUrl = data.result[0].url;
       await conn.sendFile(m.chat, imageUrl, 'pinterest.jpg', '', m);
       m.reply('Imagen descargada y enviada con éxito!');
       m.react('✅');
@@ -29,6 +28,6 @@ const handler = async (m, { conn, args }) => {
 
 handler.help = ['pinterest <url>'];
 handler.tags = ['downloader'];
-handler.command = ['pinterest1', 'pin1'];
+handler.command = ['pinterest', 'pin'];
 
 export default handler;
