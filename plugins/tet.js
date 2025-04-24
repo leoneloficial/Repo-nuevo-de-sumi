@@ -19,5 +19,5 @@ let pinterest = async (m, { conn, text }) => {
   }
 };
 
-pinterest.command = ['pinterest'];
+pinterest.command = ['pin1'];
 export default pinterest;
