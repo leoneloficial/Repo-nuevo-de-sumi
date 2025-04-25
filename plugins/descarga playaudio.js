@@ -13,11 +13,11 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     const video = searchData.data[0]; // Tomar el primer resultado
     const videoDetails = ` *「✦」 ${video.title}*
 
-> ✦ *Canal:* ${video.author.name}
-> ⴵ *Duración:* ${video.duration}
-> ✰ *Vistas:* ${video.views}
-📅 *Publicado:* ${video.publishedAt}
-🌐 *Enlace:* ${video.url}
+> ✦ *Canal:* » ${video.author.name}
+> ⴵ *Duración:* » ${video.duration}
+> ✰ *Vistas:* » ${video.views}
+> ✐ *Publicado:* » ${video.publishedAt}
+> 🜸 *Enlace:* » ${video.url}
 `;
 
     await conn.sendMessage(m.chat, {
