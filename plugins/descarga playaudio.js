@@ -100,7 +100,7 @@ m.react('🌸')
 
       await conn.reply(m.chat, infoMessage, m, JT);
 
-    if (command === 'play' || command === 'yta' || command === 'mp3') {
+    if (command === 'playaudio' || command === 'yta' || command === 'mp3') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
@@ -147,7 +147,7 @@ m.react('🌸')
   }
 };
 
-handler.command = handler.help = ['play',  'mp3', 'yta',]; 
+handler.command = handler.help = ['playaudio',  'mp3', 'yta',]; 
 handler.tags = ['downloader'];
 
 export default handler;
