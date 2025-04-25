@@ -921,6 +921,11 @@ if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
+
+if (!('antiLag' in chat))
+chat.antiLag = false
+if (!('per' in chat))
+chat.per = []
 } else
 global.db.data.chats[m.chat] = {
 isBanned: false,
@@ -960,6 +965,8 @@ simi: false,
 antiTraba: true,
 autolevelup: true,
 expired: 0,
+antiLag: false,
+per: [],
 }
 var settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
@@ -990,6 +997,15 @@ status: 0
 }} catch (e) {
 console.error(e)
 }
+
+const mainBot = global.conn.user.jid
+const chat = global.db.data.chats[m.chat] || {}
+const isSubbs = chat.antiLag === true
+const allowedBots = chat.per || []
+if (!allowedBots.includes(mainBot)) allowedBots.push(mainBot)
+const isAllowed = allowedBots.includes(this.user.jid)
+if (isSubbs && !isAllowed) 
+            return
 
 if (opts['nyimak']) {
 return;
